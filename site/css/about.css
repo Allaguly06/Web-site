@@ -32,7 +32,7 @@ body {
   }
   
   main {
-    padding: 2rem;
+    padding: 1rem;
     max-width: 800px;
     margin: auto;
   }
@@ -44,4 +44,44 @@ body {
     padding: 1rem;
     margin-top: 2rem;
   }
-  
+  a{
+    color:black;
+    text-decoration: none;
+  }
+.banner{
+  text-align: center;
+}
+.container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  gap:40px;
+  margin:10px;
+  align-items:center;
+}
+.box-topics{
+  border:2px solid black;
+  border-radius: 3%;
+  justify-content: center;
+  margin:2px;
+}
+.box-topics:hover{
+  background-color: black;
+  color:white;
+  border:2px solid red;
+  transition: 0.5s;
+}
+.box-img{
+  width: 100%;
+  height: 100%;
+}
+.img{
+  border-radius: 3%;
+  width: 100%;
+  height: 100%;
+}
+.box-txt{
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  padding:5px;
+}
