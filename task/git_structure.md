@@ -17,21 +17,19 @@
 │   ├── Отчёт.docx
 │   └── ...
 ├── site/
-│   About the project/
-│   |----Index.html
-│   |----style.css
-│   Home/
-│   |----Index.html
-│   |----style.css
-|   Magazine/
+│   html/
 |   |----Index.html
-│   |----style.css
-|   Participants/
-|   |----Index.html
-│   |----style.css
-|   Resources/
-|   |----Index.html
-│   |----style.css
+|   |----about.html
+|   |----journal.html
+|   |----members.html
+|   |----resources.html
+|   css/
+|   |----about.css
+|   |----home.css
+|   |----magazin.css
+|   |----participants.css
+|   |----resources.css
+|   src/
 ├── task/
 │   ├── README.md
 │   └── git_structure.md
