@@ -89,3 +89,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding:5px;
 }
+.logo{
+  border-radius: 10px;
+  width: 50px;
+  float:left;
+}
+nav ul li a:hover{
+  background-color:greenyellow;
+  border:2px solid goldenrod;
+  border-radius: 10px;
+  cursor:pointer;
+  transition: 0.5s;
+  padding:5px 10px;
+  color:darkblue;
+  text-decoration: none;
+}
