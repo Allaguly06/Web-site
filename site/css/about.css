@@ -2,15 +2,19 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
-    color: #333;
+    background: white;
+    color: black;
   }
   
   header {
-    background: #333;
-    color: #fff;
+    background: darkblue;
+    color: greenyellow;
     padding: 1rem;
     text-align: center;
+    border-bottom: 2px solid greenyellow;
+    position: sticky;
+    top:0;
+    z-index: 100;
   }
   
   nav ul {
@@ -38,8 +42,8 @@ body {
   }
   
   footer {
-    background: #333;
-    color: white;
+    background: darkblue;
+    color: greenyellow;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
@@ -66,9 +70,9 @@ body {
   margin:2px;
 }
 .box-topics:hover{
-  background-color: black;
-  color:white;
-  border:2px solid red;
+  background-color: darkblue;
+  color:greenyellow;
+  border:2px solid greenyellow;
   transition: 0.5s;
 }
 .box-img{
