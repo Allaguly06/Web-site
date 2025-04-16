@@ -66,6 +66,8 @@ body {
     border: none;
     color:black;
     font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
   }
   button:hover{
     background-color: darkblue;
@@ -127,4 +129,11 @@ h3{
 }
 .box-img{
   margin-top:50%;
+}
+.box-video{
+  display: flex;
+  justify-content: center;
+}
+.video{
+  margin:10px 10px;
 }
