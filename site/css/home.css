@@ -3,14 +3,17 @@ body {
     margin: 0;
     padding: 0;
     background: #f4f4f4;
-    color: #333;
+    color: black;
   }
   
   header {
-    background: #333;
-    color: #fff;
+    background: darkblue;
+    color: greenyellow;
     padding: 1rem;
     text-align: center;
+    position: sticky;
+    top:0;
+    z-index: 100;
   }
   
   nav ul {
@@ -26,6 +29,16 @@ body {
     color: white;
     text-decoration: none;
   }
+  nav ul li a:hover{
+    background-color:greenyellow;
+    border:2px solid goldenrod;
+    border-radius: 10px;
+    cursor:pointer;
+    transition: 0.5s;
+    padding:5px 10px;
+    color:darkblue;
+    text-decoration: none;
+  }
   
   nav ul li a:hover {
     text-decoration: underline;
@@ -38,10 +51,64 @@ body {
   }
   
   footer {
-    background: #333;
-    color: white;
+    background: darkblue;
+    color: greenyellow;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
   }
-  
+  a{
+    text-decoration: none;
+    color:black;
+  }
+  button{
+    background:none;
+    border: none;
+    color:white;
+  }
+  button:hover{
+    background-color: darkblue;
+    color:greenyellow;
+    border:2px solid greenyellow;
+    margin:2px;
+    font-size:15px;
+    padding:5px;
+    cursor: pointer;
+    transition: 0.5s;
+    border-radius: 10px;
+  }
+.banner{
+  text-align: center;
+}
+.intro{
+  background-image: url('../src/Tema.jpg');
+  background-size: cover; 
+  background-position: center; 
+  height: 100vh; 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+.intro::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1;
+  border-radius: 10px;
+}
+.box-banner{
+  position: relative;
+  z-index: 2;
+}
+.logo{
+  border-radius: 10px;
+  width: 50px;
+  float:left;
+}
