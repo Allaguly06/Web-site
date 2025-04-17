@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <title>Ресурсы</title>
   <link rel="stylesheet" href="../css/resources.css">
+  <link rel="icon" type="image/png" href="../src/logo.jpg">
 </head>
 <body>
   <header>
-    <h1>Ресурсы</h1>
+    <h1><img src="../src/logo.jpg" class="logo">Ресурсы</h1>
     <nav>
       <ul>
         <li><a href="../html/Index.html">Главная</a></li>
@@ -18,16 +19,37 @@
       </ul>
     </nav>
   </header>
-  <main>
-    <section>
-      <h2>Полезные материалы</h2>
-      <ul>
-        <li><a href="https://github.com/AnaktaCTF/CTF" target="_blank">AnaktaCTF/CTF репозиторий</a></li>
-        <li><a href="https://developer.mozilla.org/ru/docs/Web/HTML" target="_blank">HTML документация</a></li>
-        <li><a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank">CSS документация</a></li>
-      </ul>
-    </section>
-  </main>
+  <div class="big-box">
+    <main>
+        <h2>Полезные материалы</h2>
+        <div class="box-content">
+          <div class="content">
+            <div class="box-img">
+              <img class="icon" src="https://avatars.githubusercontent.com/u/120151748?s=200&v=4">
+            </div>
+            <div class="box-txt">
+              <a href="https://github.com/AnaktaCTF/CTF" target="_blank">AnaktaCTF/CTF репозиторий</a>
+            </div>
+          </div>
+          <div class="content">
+            <div class="box-img">
+              <img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png">
+            </div>
+            <div class="box-txt">
+              <a href="https://developer.mozilla.org/ru/docs/Web/HTML" target="_blank">HTML документация</a>
+            </div>
+          </div>
+          <div class="content">
+            <div class="box-img">
+              <img class="icon" src="https://static.wikia.nocookie.net/wikies/images/a/a9/CSS3.png/revision/latest?cb=20160909123652&path-prefix=ru">
+            </div>
+            <div class="box-txt">
+              <a href="https://developer.mozilla.org/ru/docs/Web/CSS" target="_blank">CSS документация</a>
+            </div>
+          </div>
+        </div>
+    </main>
+  </div>
   <footer>
     <p>&copy; 2025 CTF-проект</p>
   </footer>
