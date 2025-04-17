@@ -1,4 +1,8 @@
+html{
+  height: 100%;
+}
 body {
+    height: 100%;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,8 +11,8 @@ body {
   }
   
   header {
-    background: #333;
-    color: #fff;
+    background: darkblue;
+    color: greenyellow;
     padding: 1rem;
     text-align: center;
   }
@@ -29,19 +33,59 @@ body {
   
   nav ul li a:hover {
     text-decoration: underline;
+    background-color:greenyellow;
+    border:2px solid goldenrod;
+    border-radius: 10px;
+    cursor:pointer;
+    transition: 0.5s;
+    padding:5px 10px;
+    color:darkblue;
   }
-  
+  .big-box{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   main {
+    flex-grow: 1;
+    flex: 1 0 auto;
     padding: 2rem;
     max-width: 800px;
     margin: auto;
   }
   
   footer {
-    background: #333;
-    color: white;
+    background: darkblue;
+    color: greenyellow;
     text-align: center;
     padding: 1rem;
-    margin-top: 2rem;
+    margin-top: rem;
   }
-  
+  .logo{
+    border-radius: 10px;
+    width: 50px;
+    float:left;
+  }
+.content{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  border-bottom:2px solid black;
+}
+.box-img{
+  margin-right:1px;
+}
+.img{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border:5px solid greenyellow;
+}
+.box-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title{
+  font-weight: bold;
+  font-size: 30px;
+}
