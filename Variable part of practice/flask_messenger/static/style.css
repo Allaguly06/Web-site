@@ -1,0 +1,146 @@
+/* Общий стиль для страницы */
+body {
+    background-color: #f8f9fa; /* Светлый фон для страницы */
+    font-family: 'Arial', sans-serif; /* Шрифт по умолчанию */
+    color: #333; /* Цвет текста */
+}
+
+/* Навигационная панель */
+.navbar {
+    background-color: #0e68c2; /* Темный фон для панели */
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem; /* Размер шрифта для названия */
+}
+
+.navbar .btn {
+    font-size: 1rem;
+}
+
+/* Заголовки */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0e68c2;
+}
+
+/* Контейнер для чата */
+#chat-box {
+    height: 400px; /* Ограничение высоты для чата */
+    overflow-y: scroll; /* Прокрутка по вертикали */
+    border: 1px solid #ddd; /* Светлая граница вокруг чата */
+    border-radius: 5px; /* Закругленные углы */
+    padding: 15px; /* Внутренние отступы */
+    background-color: #fff; /* Белый фон для области чата */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+/* Обеспечивает автоматический перенос текста в сообщениях */
+#chat-box span {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 75%; /* Ограничивает ширину сообщений, чтобы они не растягивались на весь экран */
+    display: inline-block;
+}
+
+/* Сообщения чата */
+.d-flex {
+    margin-bottom: 10px; /* Отступ между сообщениями */
+}
+
+.p-2 {
+    padding: 10px; /* Внутренний отступ для сообщений */
+    border-radius: 10px; /* Закругленные углы для сообщений */
+}
+
+.bg-primary {
+    background-color: #007bff; /* Синий фон для сообщений пользователя */
+}
+
+.bg-success {
+    background-color: #28a745; /* Зеленый фон для сообщений других пользователей */
+}
+
+.text-white {
+    color: white; /* Белый цвет для текста сообщений */
+}
+
+/* Ввод сообщения и кнопка отправки */
+.input-group {
+    margin-top: 20px; /* Отступ сверху для формы */
+}
+
+.form-control {
+    border-radius: 25px; /* Закругленные углы для поля ввода */
+    padding: 15px; /* Увеличенные отступы для комфорта */
+}
+
+.btn {
+    border-radius: 25px; /* Закругленные углы для кнопок */
+    padding: 10px 20px; /* Отступы внутри кнопок */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Синий цвет для кнопки */
+    border: none; /* Убираем границу */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Темный оттенок при наведении */
+}
+
+/* Стили для страницы входа */
+form {
+    max-width: 500px; /* Ограничиваем ширину формы */
+    margin: 0 auto; /* Центрируем форму */
+    padding: 20px;
+    background-color: #fff; /* Белый фон для формы */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легкая тень */
+}
+
+.form-label {
+    font-weight: bold; /* Жирный текст для меток */
+}
+
+/* Стиль для ссылки на регистрацию */
+a.btn-link {
+    color: #007bff; /* Синий цвет для ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+a.btn-link:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}
+
+/* Стиль для страницы регистрации */
+.btn-success {
+    background-color: #28a745; /* Зеленый цвет для кнопки регистрации */
+}
+.bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: #0e68c2;
+}
+.btn-success:hover {
+    background-color: #218838; /* Темный зеленый при наведении */
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+    #chat-box {
+        height: 300px; /* Уменьшаем высоту чата на мобильных устройствах */
+    }
+
+    .input-group {
+        margin-top: 10px; /* Уменьшаем отступы для формы на мобильных */
+    }
+
+    .form-control {
+        padding: 10px; /* Уменьшаем отступы для поля ввода */
+    }
+
+    .btn {
+        padding: 8px 15px; /* Уменьшаем размер кнопок */
+    }
+}

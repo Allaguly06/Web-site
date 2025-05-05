@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Чат{% endblock %}
+
+{% block content %}
+<h2>Чат</h2>
+
+<div id="chat-box" class="mb-3 border rounded p-3 bg-white" style="height: 400px; overflow-y: scroll;">
+    {% for msg in messages %}
+        <div class="d-flex {% if msg.user_id == user.id %}justify-content-start{% else %}justify-content-end{% endif %}">
+            <span class="p-2 rounded text-white bg-{% if msg.user_id == user.id %}primary{% else %}success{% endif %}">
+                <strong>{{ msg.user.username }}:</strong> {{ msg.content }}
+            </span>
+        </div>
+    {% endfor %}
+</div>
+
+<form id="chat-form">
+    <div class="input-group">
+        <input type="text" name="message" class="form-control" placeholder="Введите сообщение..." required>
+        <button class="btn btn-primary" type="submit">Отправить</button>
+    </div>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.0.1/dist/socket.io.min.js"></script>
+<script>
+    var currentUserId = {{ user.id }};
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+    document.getElementById('chat-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var message = document.querySelector('input[name="message"]').value;
+        socket.emit('send_message', { message: message });
+        document.querySelector('input[name="message"]').value = '';
+    });
+
+    socket.on('receive_message', function(data) {
+        var chatBox = document.getElementById('chat-box');
+        var newMessage = document.createElement('div');
+        var isSender = currentUserId === data.user_id;
+        newMessage.className = 'd-flex ' + (isSender ? 'justify-content-start' : 'justify-content-end');
+        newMessage.innerHTML = `<span class="p-2 rounded bg-${isSender ? 'primary' : 'success'} text-white">
+                                    <strong>${data.username}:</strong> ${data.content}
+                                </span>`;
+        chatBox.appendChild(newMessage);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    });
+
+    socket.on('clear_chat', function() {
+        document.getElementById('chat-box').innerHTML = '';
+    });
+</script>
+{% endblock %}
