@@ -8,7 +8,7 @@
 <!-- Список пользователей -->
 <div class="row">
     <div class="col-4">
-        <h4>Онлайн пользователи</h4>
+        <h4>Пользователи</h4>
         <ul id="user-list" class="list-group">
             {% for user in users %}
                 <li class="list-group-item">
@@ -16,26 +16,6 @@
                 </li>
             {% endfor %}
         </ul>
-    </div>
-
-    <!-- Чат -->
-    <div class="col-8">
-        <div id="chat-box" class="mb-3 border rounded p-3 bg-white" style="height: 400px; overflow-y: scroll;">
-            {% for msg in messages %}
-                <div class="d-flex {% if msg.user_id == user.id %}justify-content-start{% else %}justify-content-end{% endif %}">
-                    <span class="p-2 rounded text-white bg-{% if msg.user_id == user.id %}primary{% else %}success{% endif %}">
-                        <strong>{{ msg.user.username }}:</strong> {{ msg.content }}
-                    </span>
-                </div>
-            {% endfor %}
-        </div>
-
-        <form id="chat-form">
-            <div class="input-group">
-                <input type="text" name="message" class="form-control" placeholder="Введите сообщение..." required>
-                <button class="btn btn-primary" type="submit">Отправить</button>
-            </div>
-        </form>
-    </div>
+    </div>   
 </div>
 {% endblock %}

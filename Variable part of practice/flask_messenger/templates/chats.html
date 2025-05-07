@@ -1,65 +1,58 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
+{% block title %}Чат с {{ recipient.username }}{% endblock %}
 
 {% block content %}
 <h2>Чат с {{ recipient.username }}</h2>
-<div class="row">
-    <!-- Sidebar -->
-    <div class="col-4">
-        <h5>Пользователи</h5>
-        <ul class="list-group">
-            {% for u in users %}
-                <li class="list-group-item">
-                    <a href="{{ url_for('private_chat', recipient_id=u.id) }}">{{ u.username }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
 
-    <!-- Chat -->
-    <div class="col-8">
-        <div id="chat-box" class="border p-3 mb-3" style="height: 400px; overflow-y: scroll;">
-            {% for message in messages %}
-                <div class="d-flex {% if message.user_id == user.id %}justify-content-start{% else %}justify-content-end{% endif %}">
-                    <span class="p-2 rounded bg-{% if message.user_id == user.id %}primary{% else %}success{% endif %} text-white">
-                        <strong>{{ message.user.username }}:</strong> {{ message.content }}
-                    </span>
-                </div>
-            {% endfor %}
+<div id="chat-box" class="border rounded p-3 bg-white mb-3">
+    {% for msg in messages %}
+        <div class="d-flex {% if msg.sender_id == user.id %}justify-content-end{% else %}justify-content-start{% endif %}">
+            <span class="p-2 text-white bg-{% if msg.sender_id == user.id %}primary{% else %}success{% endif %}">
+                <strong>{{ msg.sender.username }}:</strong> {{ msg.content }}
+            </span>
         </div>
-        <form id="chat-form">
-            <div class="input-group">
-                <input type="text" name="message" class="form-control" placeholder="Введите сообщение..." required>
-                <button class="btn btn-primary" type="submit">Отправить</button>
-            </div>
-        </form>
-    </div>
+    {% endfor %}
 </div>
 
+<form id="chat-form">
+    <div class="input-group">
+        <input type="text" name="message" class="form-control" placeholder="Введите сообщение..." required>
+        <button class="btn btn-primary" type="submit">Отправить</button>
+    </div>
+</form>
+
+<script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 <script>
     var socket = io();
-    var room = "{{ room }}";
     var currentUserId = {{ user.id }};
+    var recipientId = {{ recipient.id }};
+    var room = `${Math.min(currentUserId, recipientId)}_${Math.max(currentUserId, recipientId)}`;
 
-    socket.emit('join', { room: room });
+    socket.emit('join', { recipient_id: recipientId });
 
     document.getElementById('chat-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        var message = document.querySelector('input[name="message"]').value;
+        var messageInput = document.querySelector('input[name="message"]');
+        var message = messageInput.value;
         if (message.trim() === "") return;
+
         socket.emit('send_private_message', {
             message: message,
-            room: room
+            recipient_id: recipientId
         });
-        document.querySelector('input[name="message"]').value = '';
+
+        messageInput.value = '';
     });
 
     socket.on('receive_private_message', function(data) {
-        if (data.room !== room) return;
+        if (data.user_id !== currentUserId && recipientId !== data.user_id) return;
+
         var chatBox = document.getElementById('chat-box');
         var newMessage = document.createElement('div');
         var isSender = currentUserId === data.user_id;
-        newMessage.className = 'd-flex ' + (isSender ? 'justify-content-start' : 'justify-content-end');
-        newMessage.innerHTML = `<span class="p-2 rounded bg-${isSender ? 'primary' : 'success'} text-white">
+        newMessage.className = 'd-flex ' + (isSender ? 'justify-content-end' : 'justify-content-start');
+        newMessage.innerHTML = `<span class="p-2 text-white bg-${isSender ? 'primary' : 'success'}" style="word-wrap: break-word; word-break: break-word; white-space: normal; max-width: 75%; display: inline-block;">
                                     <strong>${data.username}:</strong> ${data.content}
                                 </span>`;
         chatBox.appendChild(newMessage);

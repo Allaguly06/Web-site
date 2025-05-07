@@ -144,3 +144,75 @@ a.btn-link:hover {
         padding: 8px 15px; /* Уменьшаем размер кнопок */
     }
 }
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.navbar {
+    background-color: #0e68c2;
+}
+
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0e68c2;
+}
+
+#chat-box {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+
+.d-flex {
+    margin-bottom: 10px;
+}
+
+.p-2 {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bg-primary {
+    background-color: #007bff;
+}
+
+.bg-success {
+    background-color: #28a745;
+}
+
+.text-white {
+    color: white;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+
+.form-control {
+    border-radius: 25px;
+    padding: 15px;
+}
+
+.btn {
+    border-radius: 25px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
