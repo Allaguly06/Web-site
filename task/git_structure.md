@@ -16,6 +16,18 @@
 │   ├── README.md
 │   ├── Отчёт.docx
 │   └── ...
+|---Varibl part of practice/
+|---flask_messenger/
+|   |---_pycache_
+|   |---static
+|   |---templates/
+|-------base.html
+|-------chats.html
+|-------Index.html
+|-------login.html
+|-------register.html
+|   |---app.py
+|   |---requirements.txt
 ├── site/
 │   html/
 |   |----Index.html
