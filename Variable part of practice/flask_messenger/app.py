@@ -67,7 +67,7 @@ def login():
             session['user_id'] = user.id
             return redirect(url_for('index'))
         else:
-            return "Неверные данные"
+            return render_template('login.html', error="Неверный логин или пароль", username=username)
 
     return render_template('login.html')
 
