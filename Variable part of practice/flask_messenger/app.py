@@ -1,3 +1,5 @@
+import eventlet
+eventlet.monkey_patch()
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -13,8 +15,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///chat.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# SocketIO
-socketio = SocketIO(app)
+# SocketIO с eventlet
+socketio = SocketIO(app, async_mode='eventlet')
 
 # Модели
 class User(db.Model):
@@ -126,4 +128,4 @@ def init_db():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    socketio.run(app,host='0.0.0.0',port='5000', debug=True)
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
